@@ -1,0 +1,203 @@
+.visualizer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.sign-selector, .result-section {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sign-selector h2, .result-section h2 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.alphabet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.alphabet-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0.5rem;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  background: #f8f9fa;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 100px;
+  font-family: inherit;
+}
+
+.alphabet-btn:hover {
+  border-color: #667eea;
+  background: #f0f2ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.2);
+}
+
+.alphabet-btn.selected {
+  border-color: #667eea;
+  background: #667eea;
+  color: white;
+}
+
+.alphabet-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.hand-sign-placeholder {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  filter: grayscale(20%);
+}
+
+.alphabet-btn.selected .hand-sign-placeholder {
+  filter: none;
+}
+
+.alphabet-btn span {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.result-display {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detected-letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.detected-letter .letter {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #667eea;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.speak-btn {
+  background: #28a745;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.speak-btn:hover {
+  background: #218838;
+  transform: scale(1.1);
+}
+
+.no-result {
+  color: #6c757d;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.debug-info {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #e9ecef;
+  border-radius: 6px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
+.debug-info p {
+  margin: 0.25rem 0;
+  color: #495057;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+}
+
+.loading {
+  color: #667eea;
+}
+
+.error {
+  color: #dc3545;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .visualizer-container {
+    gap: 1.5rem;
+  }
+  
+  .sign-selector, .result-section {
+    padding: 1rem;
+  }
+  
+  .alphabet-grid {
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    gap: 0.5rem;
+  }
+  
+  .alphabet-btn {
+    min-height: 80px;
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .hand-sign-placeholder {
+    font-size: 1.5rem;
+  }
+  
+  .detected-letter .letter {
+    font-size: 3rem;
+  }
+  
+  .speak-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .alphabet-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  
+  .detected-letter {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
